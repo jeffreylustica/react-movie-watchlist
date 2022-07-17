@@ -103,6 +103,10 @@ h3 {font-size: var(--fs-h3);}
   font-weight: var(--fw-bold);
 }
 
+.message-empty {
+  text-align: center;
+}
+
 .title {
   font-weight: var(--fw-medium); 
   margin-right: 1em;
