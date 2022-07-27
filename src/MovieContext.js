@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 const Context = React.createContext()
 
 function ContextProvider({children}) {
+    const [searchText, setSearchText] = useState("")
     const [movieIds, setMovieIds] = useState([])
     const [allMovies, setAllMovies] = useState([])
     const [api, setApi] = useState("")
@@ -11,9 +12,10 @@ function ContextProvider({children}) {
         () => JSON.parse(localStorage.getItem("movieWatchlists")) || []
     )
 
-    function setUrl({searchInput}) {
+    function setUrl({searchInput}, pageNumber) {
         if (searchInput !== "") {
-            const url = `http://www.omdbapi.com/?apikey=6c3bc615&s=${searchInput}&page=1`
+            setSearchText(searchInput)
+            const url = `http://www.omdbapi.com/?apikey=6c3bc615&s=${searchInput}&page=${pageNumber}`
             setApi(url) 
         }
     }
@@ -80,6 +82,7 @@ function ContextProvider({children}) {
 
     return (
         <Context.Provider value={{
+            searchText,
             setUrl, 
             allMovies, 
             hasValidReturn, 

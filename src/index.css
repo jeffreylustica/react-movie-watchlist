@@ -301,6 +301,42 @@ Link, .link {
   margin-right: .5em;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  margin-bottom: 3.5em;
+}
+
+.page-button {
+  cursor: pointer;
+  background-color: var(--clr-dark-gray);
+  color: var(--clr-para);
+  font-size: var(--fs-small);
+  border: none;
+  background-color: transparent;
+  padding: .325em 1.125em;
+  margin-right: .5em;
+}
+
+@media (min-width: 500px) {
+  .page-button {
+    font-size: var(--fs-body);
+  } 
+}
+
+.page-button:hover {
+  background-color: var(--clr-light-gray);
+}
+
+.page-active {
+  background-color: var(--clr-light-gray);
+}
+
+.page-hide {
+  visibility: hidden;
+}
 
 
 

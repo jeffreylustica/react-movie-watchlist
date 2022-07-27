@@ -12,7 +12,8 @@ export default function Search() {
 
     function submitSearchInput(e) {
         e.preventDefault()
-        setUrl(formData)
+        const defaultPageNumber = 1
+        setUrl(formData, defaultPageNumber)
     }
 
     return (
@@ -32,3 +33,4 @@ export default function Search() {
         </div>
     )
 }
+

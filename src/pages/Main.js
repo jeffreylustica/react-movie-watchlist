@@ -4,6 +4,7 @@ import Movie from "../components/Movie";
 import Message from "../components/Message";
 import Search from "../components/Search";
 import { Context } from "../MovieContext";
+import Pagination from "../components/Pagination"
 
 export default function Movies() {
     const {allMovies, hasValidReturn, api, isLoading} = useContext(Context)
@@ -43,6 +44,7 @@ export default function Movies() {
             <div className="movies-placeholder">
                 {displayToMain()}
             </div>
+                {hasValidReturn && <Pagination />}
         </div>
     )
 }
