@@ -1,17 +1,9 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import { Context } from "../MovieContext";
 import PageButton from "./PageButton";
 
 export default function Pagination() {
-    const [pagination, setPagination] = useState([
-        {label: "<<", value: 0, active: false},
-        {label: "1", value: 1, active: true},
-        {label: "2", value: 2, active: false},
-        {label: "3", value: 3, active: false},
-        {label: "4", value: 4, active: false},
-        {label: "5", value: 5, active: false},
-        {label: ">>", value: 6, active: false}
-    ])
+    const {pagination, setPagination} = useContext(Context)
 
     function nextSetOfPage(currentPage) {
         const newSetOfPage = pagination.map(item => {

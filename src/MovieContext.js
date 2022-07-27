@@ -80,6 +80,28 @@ function ContextProvider({children}) {
         localStorage.setItem("movieWatchlists", JSON.stringify(watchlists))
     }, [watchlists])
 
+    const [pagination, setPagination] = useState([
+        {label: "<<", value: 0, active: false},
+        {label: "1", value: 1, active: true},
+        {label: "2", value: 2, active: false},
+        {label: "3", value: 3, active: false},
+        {label: "4", value: 4, active: false},
+        {label: "5", value: 5, active: false},
+        {label: ">>", value: 6, active: false}
+    ])
+
+    function resetPagination() {
+        const newSetOfPage = []
+            for (let i = 0; i < 7; i++ ) {
+                newSetOfPage.push({
+                    label: i === 0 ? "<<" : i === 6 ? ">>" : `${i}`, 
+                    value: i, 
+                    active: i === 1 ? true : false
+                })
+            }
+        setPagination(newSetOfPage)
+    }
+
     return (
         <Context.Provider value={{
             searchText,
@@ -91,6 +113,9 @@ function ContextProvider({children}) {
             watchlists,
             addToWatchlist,
             removeFromWatchlist,
+            pagination,
+            setPagination,
+            resetPagination
         }}>
             {children}
         </Context.Provider>

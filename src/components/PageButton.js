@@ -1,8 +1,10 @@
 import React, {useContext} from "react";
 import { Context } from "../MovieContext";
+import useScrollTop from "../hooks/useScrollTop"
 
 export default function PageButton({item, next, back, setCurrentPage}) {
     const {searchText, setUrl} = useContext(Context)
+    const [ref] = useScrollTop()
 
     function changePage() {
         setUrl({searchInput: searchText}, item.value)
@@ -18,6 +20,6 @@ export default function PageButton({item, next, back, setCurrentPage}) {
     const btnStyle = item.active === true ? "page-button page-active" : item.value === 0 ? "page-button page-hide" : "page-button"
 
     return (
-        <button className={btnStyle} key={item.value} onClick={changePage}>{item.label}</button>
+        <button ref={ref} className={btnStyle} key={item.value} onClick={changePage}>{item.label}</button>
     )
 }

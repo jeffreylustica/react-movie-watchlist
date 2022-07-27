@@ -44,7 +44,7 @@ export default function Movies() {
             <div className="movies-placeholder">
                 {displayToMain()}
             </div>
-                {hasValidReturn && <Pagination />}
+            {hasValidReturn && <Pagination />}
         </div>
     )
 }

@@ -313,16 +313,17 @@ Link, .link {
   cursor: pointer;
   background-color: var(--clr-dark-gray);
   color: var(--clr-para);
-  font-size: var(--fs-small);
+  font-size: .8rem;
   border: none;
   background-color: transparent;
   padding: .325em 1.125em;
-  margin-right: .5em;
+  margin-right: .25em;
 }
 
 @media (min-width: 500px) {
   .page-button {
     font-size: var(--fs-body);
+    margin-right: .5em;
   } 
 }
 

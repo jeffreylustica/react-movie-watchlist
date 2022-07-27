@@ -3,7 +3,7 @@ import { Context } from "../MovieContext";
 
 export default function Search() {
     const [formData, setFormData] = useState({searchInput: ""})
-    const {setUrl} = useContext(Context)
+    const {setUrl, resetPagination} = useContext(Context)
 
     function handleChange(e) {
         const {name, value} = e.target
@@ -14,6 +14,7 @@ export default function Search() {
         e.preventDefault()
         const defaultPageNumber = 1
         setUrl(formData, defaultPageNumber)
+        resetPagination()
     }
 
     return (
